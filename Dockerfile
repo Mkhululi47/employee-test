@@ -36,4 +36,4 @@ ENTRYPOINT ["sh", "-c"]
 
 ENV Environment env-dev
 
-CMD ["java -jar -Dspring.profiles.active=`${Environment}' app.jar"]
+CMD ["java -jar -Dspring.profiles.active=${Environment} app.jar"]
