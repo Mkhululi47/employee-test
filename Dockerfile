@@ -33,4 +33,7 @@ WORKDIR /app
 COPY --from=build /app/employee-service/target/employee-service-1.0.0-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
 ENTRYPOINT ["sh", "-c"]
-CMD ["java -jar app.jar"]
+
+ENV Environment env-dev
+
+CMD ["java -jar -Dspring.profiles.active=`${Environment}' app.jar"]
